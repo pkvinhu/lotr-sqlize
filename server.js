@@ -18,6 +18,16 @@ const init = async () => {
 
 init();
 
+app.get('/api/LOTRcontacts', (req, res, next)=> {
+  Contact.findAll({
+  	include: [ Account ]})
+  .then((lotr)=>{
+  	res.send(lotr);
+  })
+})
+
+
+
 // app.get('/', async (req, res, next) => {
 //   const allContacts = await Contact.findAll({ include: [Account]});
 //   res.json(allContacts);
